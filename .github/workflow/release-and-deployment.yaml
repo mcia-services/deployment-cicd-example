@@ -1,1 +1,25 @@
-# Release action use example
+name: Deployment action
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  release-and-deployment:
+    runs-on: ubuntu-latest
+    name: Release and deploy in server
+    steps:
+
+      - uses: mcia-services/release-copy-deploy-action@latest
+        with:
+          host: 'docker'
+          username: 'mcia'
+          key: ${{ secrets.MCIA_ECOBULK_PRIVATE_KEY }}
+          proxy-host: 'mciawebserver.upc.edu'
+          proxy-username: 'mcia'
+          proxy-key: ${{ secrets.MCIA_PRIVATE_KEY }}
+          directory: '/home/mcia/testing'
+          sources: 'testfolder/ testfile.txt'
+          tag: 'latest'
