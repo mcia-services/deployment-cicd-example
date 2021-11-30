@@ -16,7 +16,7 @@ jobs:
         with:
           host: 'docker'
           username: 'mcia'
-          key: ${{ secrets.MCIA_ECOBULK_PRIVATE_KEY }}
+          key: 'test'
           proxy-host: 'mciawebserver.upc.edu'
           proxy-username: 'mcia'
           proxy-key: ${{ secrets.ESXIREVERSEPROXY_PRIVATE_KEY }}
