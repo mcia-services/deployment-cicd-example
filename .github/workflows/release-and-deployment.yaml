@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Release and deploy in server
     steps:
-
+      - uses: actions/checkout@main
       - uses: mcia-services/release-copy-deploy-action@latest
         with:
           host: 'docker'
