@@ -14,13 +14,13 @@ jobs:
       - uses: actions/checkout@main
       - uses: mcia-services/release-copy-deploy-action@latest
         with:
-          host: 'docker'
-          username: 'mcia'
-          key: 'test'
+          host: docker
+          username: mcia
+          key: ${{ secrets.MCIA_ECOBULK_PRIVATE_KEY }}
           proxy-host: 'mciawebserver.upc.edu'
           proxy-username: 'mcia'
-          proxy-key: ${{ secrets.ESXIREVERSEPROXY_PRIVATE_KEY }}
+          proxy-key: ${{ secrets.MCIA_PRIVATE_KEY }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          directory: '/home/mcia/testing'
-          sources: 'testfolder/ testfile.txt'
-          tag: 'latest'
+          directory: /home/mcia/testing
+          sources: testfolder/ testfile.txt
+          tag: latest
